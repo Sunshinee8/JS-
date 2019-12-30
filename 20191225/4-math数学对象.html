@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     /*
+     math:数学对象，引用数据类型  取不到值，返回NaN
+     他是window上的一个属性
+     Math的方法处理值得时候，如果值不是一个数字，要先转数字，然后再处理
+     1.Math.PI():圆周率
+     2.Math.abs():取绝对值
+     3.Math.ceil():向上取整
+     4.Math.floor():向下取整
+     5.Math.max():取一组数的最大值
+     6.Math.min():取一组数的最小值
+     7.Math.round():四舍五入
+     8.Math.sqrt():开平方
+     9.Math.pow(n,m);取n的m次幂
+     10.Math.random;取0到1直接的随机小数
+      // 获取n到m之间的随机整数
+      Math.round(Math.random()*(m-n)+n)
+     */ 
+    console.dir(Math.PI);
+    console.log(Math.abs(undefined));
+    console.log(Math.abs(-2))//2
+    console.log(Math.ceil(4.2))//5
+    console.log(Math.ceil(-3.5))//-3
+    console.log(Math.floor(3.6))//3
+    console.log(Math.max(...[1,2,3,4,5,6,7,88]));//88
+    console.log(Math.round(-3.6));//-4
+    console.log(Math.sqrt(4));//开平方 2
+    console.log(Math.pow(2,3));//8
+    console.log(Math.random());//取0到1直接的随机小数
+    console.log(Math.round(Math.random()*(6-3)+3))//取3 6直接的整数
+    console.log(Math.round(Math.random()*6))//取0 6直接的整数
+    </script>
+</body>
+</html>

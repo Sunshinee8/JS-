@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        箭头函数：ES6的语法
+        展开收缩运算符
+        函数默认值
+        缺点：不能使用this属性
+        */
+        let sum = (n, m) => {
+            let num = n + m;
+            return num;
+        }
+        console.log(sum(1, 1));
+
+        //1.如果函数只有一个形参，可以省略小括号
+        // function fn(n) { };
+        // let fn1 = n => { };
+
+        //2.如果函数只有一个return一行代码，可以省略大括号和return
+        // function fn(n) {return n };
+        // let fn2=n=n;
+
+        //3.如果函数return是一个空对象，简写时要给return 内容加小括号
+        function fn() { return {} };
+        let fn3 = () => ({});
+
+        //4.箭头函数没有arguments
+
+        //5.箭头函数没有this
+
+        //弥补箭头函数没有arguments 语法(...名称)
+        //展开/收缩运算符
+        let fn4 = (...arg) => {
+            console.log(arg);//收缩运算符，数组
+            console.log(arg.length);
+            console.log(...arg);//展开运算符
+        }
+        fn4(1, 2, 3, 4, 5, 6);
+        //****课下用箭头函数的方式实现任意数求和
+        let ary = [1, 2, 3, 4, 5];
+        let sum2=(...ary)=>{
+          console.log(ary[0]);
+            let totel=0;
+            for(var i=0;i<ary[0].length;i++){
+               totel+=ary[0][i];
+            }
+            return totel;
+        }
+        console.log(sum2(ary));
+        let ary1 = [...ary];
+        console.log(ary == ary1);//false 因为两个是不同的空间地址
+
+        //给函数的形参赋默认值（如果不传实参时，那形参的值就是赋的默认值，
+        //                    如果穿实参，那形参的值就是你传递的实参值）
+        function fn5(n = 0, m = 0) {
+            return n + m;
+        }
+        console.log(fn5());//NaN
+
+        function fn(s){
+            return function(x){console.log(1111)}
+        }
+        let b= fn();
+        b();
+
+        let a = s => x => { console.log(1) }
+         let f=a();
+         f();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: lightgoldenrodyellow;
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            border: 1px solid black;
+            margin: 20px auto;
+        }
+
+        ul li {
+            line-height: 30px;
+            font-size: 20px;
+            text-align: center;
+            color: aqua;
+        }
+
+        /* ul li:nth-child(odd) {
+            background: orangered;
+        }
+        ul li:nth-child(even) {
+            background: black;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="ul">
+            <li>佟湘玉</li>
+            <li>白展堂</li>
+            <li>吕轻侯</li>
+            <li>李秀莲</li>
+            <li>郭芙蓉</li>
+        </ul>
+    </div>
+    <script>
+        //1,想操作谁，就先获取谁
+        let ul = document.getElementById('ul');//通过id获取，获得的是一个对象数据类型
+        let list = ul.getElementsByTagName('li');//通过标签名获取是一个元素集合，是一个类数组
+        console.log(list);
+        //2.
+        for (var i = 0; i < list.length; i++) {
+            //
+            if (i % 2 === 0) {
+                //如果条件成立，说明是偶数
+                list[i].myColor = "orangered";//把当前背景的颜色 存储到新的属性值里面，之后再获取
+                list[i].style.background = 'orangered';
+            } else {
+                //否则是奇数
+                list[i].myColor = "black";//把当前背景的颜色 存储到新的属性值里面，之后再获取
+                list[i].style.background = "black";
+            }
+            //给li绑定鼠标划入
+            list[i].onmouseover = function () {
+                //this:你操作的元素
+                this.style.background = "yellow";
+            }
+            //给li绑定鼠标划出事件
+            list[i].onmouseout = function () {
+                this.style.background = this.myColor;//再把之前存储的属性值 存储到里面
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        原理：用indexOf 判断数组去重
+        *
+        /
+        // let ary = [1,2,1,2,1,2]; // [1,2]
+        function unique(ary){
+                let newAry = []; // 创建一个新数组，用来存放不重复的每一项
+                for (var i = 0; i < ary.length; i++) {
+                   if(newAry.indexOf(ary[i]) === -1){
+                       newAry.push(ary[i])
+                   }
+                }
+                return newAry
+        }
+// ===========================================================================================
+           /* 
+        原理：循环数组的每一项，把数组的每一项和他后面的值一一做比较，如果和数组的当前项相同了，证明这一项就是重复项，就把他在原数组里删除
+        */
+
+        // let ary = [23, 23, 23, 34, 23, 34, 23];
+
+        // function unique(ary) {
+        //     // 
+
+        //     // 循环数组的每一项
+        //     for (var i = 0; i < ary.length - 1; i++) {
+        //         var cur = ary[i] // 23  i=0
+        //         //此循环就是把当前项和他后面的每一项去做比较
+        //         for (var j = 1 + i; j < ary.length; j++) {
+        //             var next = ary[j];
+        //             if (cur === next) {
+        //                 ary.splice(j, 1);
+        //                 j--; // 数组塌陷
+        //             }
+        //         }
+        //     }
+        //     // return ary
+        // }
+        // // console.log(unique(ary)) // [23, 34]
+        // console.log(ary)
+        // console.log(unique(ary) === ary)
+        // ===============================================================================================
+        /*
+        原理：创建一个空对象，循环数组，把数组存储到对象中，之后循环数组，增加到新数组中
+        */
+        // let ary = [23, 23, 23, 34, 23, 34, 23];
+        // function unique2(ary) {
+        //     // 创建一个空对象，循环数组，把数组的每一项既当做属性名，又当做属性值作为键值对存储到对象中
+        //     var obj = {};
+        //     for (var i = 0; i < ary.length; i++) {
+        //         var cur = ary[i];
+        //         obj[cur] = cur;
+        //     }
+        //     var newAry = [];
+        //     for (var j in obj) {
+        //         newAry.push(obj[j]);
+        //     }
+        //     return newAry;
+        // }
+
+        // let newAry = unique(ary)
+        // console.log(newAry);
+        // ==========================================================================================
+        /*
+       原理： 利用对象的属性名如果不存在，那属性值就是undefined
+        */
+        // 利用对象的属性名如果存在，那属性值就不是undefined
+        let ary = [23, 55, 23, 34, 23, 34, 23];
+
+        function unique(ary) {
+            let obj = {};
+            for (var i = 0; i < ary.length; i++) {
+                if (obj[ary[i]] !== undefined) {
+                    // 如果此条件成立，把这一项在数组中就是重复项
+                    // 把这一项在原数组中删除
+                    // ary.splice(i, 1);
+                    // i--; // 数组塌陷
+                    ary[i] = ary[ary.length - 1];
+                    ary.length--;
+                    i--;
+                } else {
+                    obj[ary[i]] = ary[i]
+                    // obj [23] = 23
+                }
+            }
+            return ary
+        }
+        console.log(unique(ary)) // [23, 34]
+         
+         // 数组去重 先转一个set实例，之后再把set实例转数组类型 s6里面的新知识
+        let ary3=[1,2,1,2,1,2,4,4,3];
+        let res=Array.from(new Set(ary3));
+    </script>
+</body>
+
+</html>

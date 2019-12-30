@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        ul>li {
+            width: 150px;
+            border: 1px solid lightcoral;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        #box {
+            margin: 40px auto;
+            width: 500px;
+            height: 500px;
+        }
+
+        #ul li.active {
+            background: lightcoral;
+        }
+
+        #box div.active {
+            background: lightcoral;
+            height: 450px;
+            width: 485px;
+            display: block;
+        }
+
+        #box div {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="active">一</div>
+        <div>二</div>
+        <div>三</div>
+    </div>
+    <script>
+        let ul = document.getElementById('ul')
+        let box = document.getElementById('box');
+        let liList = ul.getElementsByTagName('li');
+        let divList = box.getElementsByTagName('div');
+        // document.querySelectorAll('#ul li')
+        for (var i = 0; i < liList.length; i++) {
+            liList[i].setAttribute('index',i);
+            // liList[i].myIndex = i;
+            liList[i].onclick = function () {
+                fn(this.getAttribute('index'));
+                // alert(1)
+            }
+        }
+
+        function fn(index) {
+            for (var i = 0; i < liList.length; i++) {
+                liList[i].className = '';
+                divList[i].className = '';
+            }
+            liList[index].className = 'active';
+            divList[index].className = 'active';
+        }
+    </script>
+    <!-- <script src="sh"></script> -->
+</body>
+
+</html>

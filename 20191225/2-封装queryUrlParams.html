@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let url = 'http://www.baidu.com?neme=erYA&age=18&sex=女#ddd';
+        function fn(str) {
+            //先获取？的索引
+            var index = str.indexOf('?');
+            var lastIndex=str.lastIndexOf('#');          
+            //之后从索引值 开始截取 到#号结束
+            var newStr = str.substring(index + 1,lastIndex);
+            //之后根据&进行分隔，获得一个数组
+            var newStrAry = newStr.split('&');
+            console.log(newStrAry);// ["neme=erYA", "age=18", "sex=女"]
+            //循环数组，不同的参数
+            let obj = {};
+            for (var i = 0; i < newStrAry.length; i++) {
+                console.log(newStrAry[i]);//neme=erYA
+                //  在根据=号进行截取 
+                var newItem = newStrAry[i].split('=');
+                console.log(newItem);//["neme", "erYA"]
+
+                //根据newItem里的内容都填到obj里面，就会出现属性名：属性值
+                obj[newItem[0]] = newItem[1];
+            }
+              //获取#号后面的内容
+            var hash=str.substring(lastIndex+1);
+            obj['hash']=hash;
+            return obj;
+        }
+        console.log(fn(url));//{neme: "erYA", age: "18", sex: "女"}
+//课下 做   let url = 'http://www.baidu.com?neme=erYA&age=18&sex=女#ddd';
+//{neme: "erYA", age: "18", sex: "女",hash:'ddd'}
+    </script>
+</body>
+
+</html>

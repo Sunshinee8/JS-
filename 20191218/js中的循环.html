@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        循环：不断的重复去做某一件事
+        fon 循环
+        fon in 循环
+        while 循环
+        */
+
+        /*
+        1.for 循环：
+        （1） 创建循环初始值
+        （2）创建、判断循环的条件是否成立
+        （3）条件成立，执行循环体的代码
+        （4）进行步骤累计
+        continue:结束当前轮的循环，进行下一轮循环
+        break：结束所有循环
+        */
+        for (var i = 0; i < 3; i++) {
+            //如果for循环执行不完，那他下面的代码不会执行
+            //他有阻塞线程的作用
+        }
+        for (var i = 0; i < 4; i++) {
+            break;
+            if (i === 2) {
+                continue;
+            }
+            console.log(i);
+        }
+        console.log(i);//0
+
+        var a = 0;
+        for (var i = 0; i < 10; i++) {
+            if (i >= 2) {
+                i += 2;
+                continue;
+            }
+            if (i >= 6) {
+                i--;
+                break;
+            }
+            console.log(i++);
+            a++;
+        }
+        console.log(i);
+        console.log(a);
+        //11  --------
+        /*
+        2.while循环：一般用于不知道要循环多少次的循环
+        
+        */
+        let num2 = 0;
+        while (num2 < 6) {
+            console.log()
+            num2 += 2;//0.2.4
+        }     
+        /*
+       3. for in :跟foreach一样 
+        
+        */
+        let obj={ age:18}
+        let a1="age";
+        console.log(obj.age);
+        console.log(obj["age"]);
+        console.log(obj[a1]);
+        let obj1={
+            name:"历史",
+        }
+        for(var key in obj1 ){
+           console.log(obj1[key]);
+        }
+
+      
+    </script>
+</body>
+
+</html>

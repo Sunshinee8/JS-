@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        #box {
+            width: 800px;
+            height: 50px;
+            line-height: 50px;
+            margin: 30px auto;
+            background: -webkit-linear-gradient(top right, rgb(226, 98, 98), rgb(96, 223, 96), rgb(235, 235, 26));
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            color: lightcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /*
+        1.声明一个结束时间
+        2.计算当前时间和结束时间的时间差
+        3.把时间差转换为 想要的格式展示在页面上
+        4.用定时器 setInterval 不断更新页面上的时间差
+        */
+        let timer=null;
+        let box = document.getElementsByTagName('div')[0];
+        //不足10 补零
+        function addZreo(value) {
+            return value < 10 ? '0' + value : value;
+        }
+        let endTime = new Date('2019-12-27 12:14')//结束时间
+        setTime();
+        function setTime() {
+            let newTime = new Date();
+            let diffTime = endTime - newTime;//毫秒差
+            console.log(diffTime);
+            if (diffTime <= 0) {
+                clearInterval(timer);//清空定时器
+                box.innerHTML = '时间到了';
+                return;
+            }
+            //获取小时 向下取整剩余的时间射雕
+            let hours = Math.floor(diffTime / 60 / 60 / 1000);
+            //获取分 总数减去小时
+            let min = Math.floor((diffTime - hours * 60 * 60 * 1000) / 60 / 1000);
+            //获取 秒 总数减去小时 分
+            let sec = Math.floor((diffTime - hours * 60 * 60 * 1000 - min * 60 * 1000) / 1000);
+            let dao = hours + ':' + min + ':' + sec;
+            box.innerHTML = dao;
+        }
+         timer = setInterval(setTime, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 基本数据类型操作的值
+    // 引用类型操作的地址(直接把地址里面的内容修改，只剩下最新的内容，根据地址只能还知道最新的内容值)
+    在对象和数组中。只要是赋值，不管更改多少都是更改值得地址，都会等于最新的内容。
+    但是有一项，当其中的一个变量 值重新给定，不是以赋值的形式，就会出现新的地址，他就会跟其他变量不一样
+    let n = [10, 20];
+    let m = n;
+    let x = m;
+    m[0] = 100;
+    x = [30, 40];
+    x[0] = 200;
+    m = x;
+    m[1] = 300;
+    n[2] = 400;
+    console.log(n, m, x)
+   let b={
+      name:"珠峰"
+   }
+   let c=b;
+   c.name='培训'
+   console.log(b.name);
+    </script>
+</body>
+</html>

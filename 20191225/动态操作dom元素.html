@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 500px;
+            margin: 20px auto;
+        }
+
+        #blockText {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        请输入内容：<input type="text" id='contentId'>
+        <div id='blockText'></div>
+    </div>
+    <script>
+        let block = document.getElementById('blockText');
+
+        contentId.onblur = function () {
+            let content = contentId.value;
+            var insertDiv = document.createElement('div');
+            var insertB = document.createElement('span');
+            //添加文本框的内容
+            var insertC = document.createTextNode(content);
+            insertB.appendChild(insertC);
+            //添加按钮
+            var removeBtn = document.createElement('button');
+            removeBtn.innerHTML = '删除';
+            removeBtn.style.marginLeft = '50px'
+            insertDiv.appendChild(insertB);
+            blockText.appendChild(insertDiv);
+            insertDiv.appendChild(removeBtn);
+            contentId.value = '';
+            getColor();
+            removeBtn.onclick = function () {
+                this.parentNode.parentNode.removeChild(this.parentNode)
+                getColor();
+            }
+            
+        }
+        //各行变色
+        function getColor() {
+            var zong = block.getElementsByTagName('div');
+            for (var i = 0; i < zong.length; i++) {
+                if (i % 2 === 0) {
+                    zong[i].style.background = 'red';
+                } else {
+                    zong[i].style.background = 'yellow';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

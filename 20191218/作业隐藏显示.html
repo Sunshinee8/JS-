@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #box {
+        margin: 0 auto;
+        width: 500px;
+    }
+
+    span {
+        display: block;
+        font-size: 40px;
+        color: orangered;
+        cursor: pointer;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="box">
+        <span id="display_span">隐藏</span>
+        <img id="img_s"
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573150275632&di=8a7f6c6ddf4656c1a67b519bb7244be9&imgtype=jpg&src=http%3A%2F%2Fimgsa.baidu.com%2Fexp%2Fw%3D500%2Fsign%3Df0c47dd191504fc2a25fb005d5dfe7f0%2F6d81800a19d8bc3e6edff713888ba61ea9d34510.jpg"
+            alt="">
+    </div>
+    <script>
+        let display_span = document.getElementById("display_span");
+        let img_s = document.getElementById("img_s");
+        display_span.onclick = function () {
+            let btns = display_span.innerText;
+            if (btns== "显示") {
+                img_s.style.display = "block";
+                display_span.innerText = "隐藏";
+            } else {
+                img_s.style.display = "none";
+                display_span.innerText = "显示";
+            }
+        }        
+    </script>
+</body>
+
+</html>

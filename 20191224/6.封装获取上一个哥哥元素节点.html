@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li id='first'></li>
+        <li id='falg'></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        let first = document.getElementById('first');
+        let flag = document.getElementById('flag');
+        function prev(context) {
+            //获取上一个兄弟节点
+            var pre = context.previousSibling;
+            if (pre != null) {
+                //如果上一个兄弟节点的nodeType不等于1，说明此节点不是元素节点，要继续循环获取上一个哥哥节点的哥哥节点
+                while (pre.nodeType !== 1) {
+                    pre = pre.previousSibling;
+                }
+            }
+            return pre;
+        }
+        console.log(prev(flag));
+        // flag.previousSibling
+    </script>
+</body>
+
+</html>

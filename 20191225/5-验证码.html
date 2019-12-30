@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 200px;
+            margin: 20px auto;
+            display: flex;
+            /* border: 1px solid black; */
+        }
+
+        span {
+            display: block;
+            width: 60%;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border: 1px solid black;
+            margin-right: 10px;
+            font-weight: 600;
+            color: orangered;
+        }
+
+        button {
+            display: block;
+            height: 20px;
+            width: 40%;
+            background: orangered;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span id="show">放置验证码</span><button id="btn">看不清</button>
+    </div>
+    <input type="text" id="input">
+    <script>
+        /*
+        1.想操作谁就获取谁
+        2.封装随机产生随机验证码的方法
+        3.给btn绑定点击事件，当点击时候，去调用方法
+        4.给input 绑定失去焦点事件，当失去焦点时，判断两个值是否相等
+        */
+        let show = document.getElementById('show');
+        let btn = document.getElementById('btn')
+        let input = document.getElementById('input');
+        createRandom();//初始化
+        btn.onclick = function () {
+            createRandom();
+        }
+        function createRandom() {
+            //第一步声明一个随机数内容的字符串
+            let str = 'abcdefghijklmnopqrstuvwsyzABCDEFGHIJKLMNOPQUVWSYZ1234567890';
+            let value = '';
+            //第二部 for循环拼接 随机数 范围 0 到最后一位
+            for (var i = 0; i < 4; i++) {
+                //Math.round(Math.random()*（m-n）+n获取n到m之间的随机整数 
+                let index = Math.round(Math.random() * (str.length - 1 ));
+                let item = str[index];
+                value += item;
+            }
+            //第三部 添加到span里面
+            show.innerHTML = value;//把value置入到span里
+            return value;
+        }
+        //文本框失去焦点触发的事件
+        input.onblur = function () {
+            //toLowerCase 都转为小写 之后进行比较
+            let inputText = input.value.toLowerCase();
+            let showText = show.innerText.toLowerCase();
+
+            if (inputText === showText) {
+                alert('ok');
+            } else {
+                alert('no');
+                createRandom();
+                input.value = '';//清空
+            }
+        }
+
+    </script>
+</body>
+
+</html>

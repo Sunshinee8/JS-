@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**/
+        let ary = [23, 12, 45, 21, 12, 11, 55, 7]
+        function insert(ary) {
+            let handAry = [];//声明一个数组，里面放手里抓到的牌
+            //先抓第一张牌
+            handAry.push(ary[0]);
+            //进行抓牌
+            for (var i = 1; i < ary.length; i++) {   //23  12
+                //手里的牌 循环，从后往前循环，最后的值才是从小到大
+                for (var j = handAry.length - 1; j >= 0; j--) {
+                     // 抓的这张牌一旦匹配到大于手里的牌，就立刻停止
+                    if (handAry[j] <= ary[i]) {                       
+                        handAry.splice(j + 1, 0, ary[i]);//把抓到的牌，放到手里牌的后面，因为比手里的牌大，所以放到后面
+                        break;
+                    }
+                    //当手里的牌一直都无法匹配，就获取j===0时 直接放到最前面，不用比较 （特殊情况）
+                    if (j === 0) {
+                        handAry.unshift(ary[i]);//添加到最前面
+                    }
+                }
+            }
+            return handAry;
+        }
+        console.log(insert(ary));
+    </script>
+</body>
+
+</html>

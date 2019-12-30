@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" class="11">11111</div>
+    <script>
+        /*
+      1.document.createElement('标签名')：动态创建元素节点
+      2.document.createTextNode(); 动态创建一个文本节点
+      3.父级点.appendChild(); 把指定节点插入到父节点的末尾
+      4.父级点.insertBefore(n,m) :把n插入到m前面
+      5.父级点.removeChild('')：在页面中移除box元素
+      6.clonewNode(true/false):克隆节点
+      7.setAttribute(属性名,属性值):给元素的结构上增加自定义属性
+      8.getAttribute(属性名)：获取自定义属性值
+      9.removeAttribute(属性名):移除自定义属性
+      10 box.replaceChild(n,m);替换类名（n被m替换）
+      11. box.classList.add('aaa');//在已有的class名增加新的类名
+      12  // box.classList.remove('11');//删除指定的类名
+      13  box.classList.replace(n,m);替换类名（n被m替换）
+      用set设置的值，必须用get获取
+      用。设置的值，必须用。获取
+        */
+        let box = document.getElementById('box');
+        let div = document.createElement('div');//动态创建div
+        let text = document.createTextNode('222');//动态创建文本节点
+        div.appendChild(text);//把文本插入到div里面
+        document.body.appendChild(div);//把div插入到body末尾
+        document.body.insertBefore(div,box);//前面内容，后面的内容，想让谁在前面就写在前面
+        // document.body.removeChild(box);
+        box.cloneNode();//如果属性为true为深克隆，false或不传为浅克隆
+
+        box.myIndex=1;//是把键值对增加到堆内存中
+        box.setAttribute('falg',333);//给元素的结构上增加自定义属性
+        console.log(box.getAttribute('falg'));//获取自定义属性值
+        console.log(box);
+        box.removeAttribute('falg');
+
+        // box.className='ss';
+        box.classList.add('aaa');
+        // box.classList.remove('11');//
+        box.classList.replace('aaa','33');
+        // box.classList='111';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        函数的返回值：（函数里面的东西，在函数外面是拿不到的）
+        1.return 就是函数返回出去。
+        2.阻断代码向下运行，【return下面的代码不在运行】（break，continue）
+
+        如果函数没有返回值，那函数外执行的结果是undefined。
+        如果只写return，后面没有值，那函数外执行结果还是undefined。
+        */
+
+        /*
+      出现undefined的情况：
+      1、对象里获取属性名所对应的属性值获取不到，那就是unedfined
+      2、函数执行时，实参不给形参赋值，那结果就是undefined
+      3、函数没有return(返回值)，那函数执行结果就是undefined
+      4、创建一个变量，不给他赋值，那他的值就是undefined
+      */
+
+        /*
+        出现null的情况：
+        1、给变量手动赋值为null
+        2、通过id获取元素，获取不到，那结果也是null
+        */
+
+   function ff(){
+       console.log(1);
+       return 22;
+       console.log(3);
+   }
+   console.log(ff());//1  22
+//虽然函数外面拿不到函数里面的变量，但是函数里边可以拿到函数外边的变量
+let num=12
+function fn(){
+  num++
+  return num++;
+}
+console.log(fn());//13;
+console.log(num);//14
+    </script>
+</body>
+</html>

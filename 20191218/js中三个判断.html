@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*js中的判断语句：条件成立干啥事，不成立干啥事
+        1.if/else else if else
+        如果if条件的大括号里只有一行代码，可以省略大括号；
+        if(判断条件){
+    添加成立后，你要做的事情
+        }
+        */
+        // let num=10
+        // if (num) {
+        //     //他会把小括号里面的值转布尔，如果为true，那条件成立，大括号里的代码就执行，反之不执行
+        //     //小括号里面的值是多样性的
+        //     //只要条件成立，不管下边是否成立都不会再继续执行
+        // }else if(num===12){
+        //     //如果上边的条件不成立，就走这里
+        // }else{
+        //    //如果上边条件都不成立，就会走这里
+        // }
+
+        let a = 5
+        if (a > 0) {
+            if (a < 10) {
+                a++
+            } else {
+                a--
+            }
+        } else {
+            if (a < -10) {
+                a += 2
+            }
+        }
+        console.log(a)
+        //  a=6
+
+        //// a > 0 ? (a < 10 ? a++ : a--) :(a < -10 ? a += 2 : null);
+        //2. 三元运算符：处理简单的逻辑  1==2？true：false(也可嵌套。但不推荐)
+        //   条件?条件成立做的事情：条件不成立做的事情
+        //   如果条件不成立，没有想做的事，但是位置不能空着，要用null站位
+        //如果条件成立时，里面有多个内容，用括号包裹，逗号隔开
+        if (1) {
+            console.log(2);
+        }
+        1 ? (console.log(2), console.log(3)) : null
+        /*3.switch case 这里是绝对比较=== 不会进行数据类型转化
+        如果不写break ，条件一旦成立，下面的条件不管是否成立，都会执行，直到遇到break为止。
+        */
+        switch ('1') {
+            case 1:
+                console.log(111);
+                break;
+            case 11:
+                console.log(10);
+                break;
+            default: //相当于else
+                console.log(111111111);
+        }
+
+    </script>
+</body>
+
+</html>

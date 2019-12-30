@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 500px;
+            margin: 20px auto;
+            /* border: 1px solid black; */
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            /* jutify-content: */
+            position: relative;
+            top: 1px;
+        }
+
+        ul li {
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid black;
+            /* margin-right: 20px; */
+            font-size: 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        ul li:nth-child(2) {
+            margin: 0 24px;
+        }
+
+        #box div {
+            width: 500px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 50px;
+            border: 1px solid black;
+            display: none;
+        }
+
+        ul li.active {
+            border-bottom-color: orangered;
+            background-color: orangered;
+
+        }
+
+        #box div.active {
+            display: block;
+            background-color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class="active">一</div>
+        <div>二</div>
+        <div>三</div>
+    </div>
+    <script>
+        //1 想操作谁就获取谁
+        let ul = document.getElementById("ul");
+        let liList = ul.getElementsByTagName("li");
+        let box = document.getElementById("box");
+        let div = box.getElementsByTagName("div");
+        //2 给相应的元素绑定相应的事件
+        //给li添加 点击事件
+        for (var i = 0; i < liList.length; i++) {
+            liList[i].myIndex = i;//添加个属性，并赋值
+            console.log(liList[i]);
+            liList[i].onclick = function () {
+                //在事件里实现的功能                
+                fn(this.myIndex);//传入属性，根据liList[i],因为onclick是for都循环完成，当时i固定为3，//只能用
+            }
+        }
+        function fn(index) {
+            //单独写方法，先清空样式，在给相应的元素赋值
+            for (var i = 0; i < liList.length; i++) {
+                liList[i].className = "";
+                div[i].className = "";
+            }
+            liList[index].className = "active";
+            div[index].className = "active";
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 11 0 珠峰 0 10 -->
+    <!-- 字符串拼接 只有+号为字符串拼接 其他都为字符串计算-->
+    <script>
+        // console.log(null + '');
+        console.log(true + 3 * 5 + null * 2);
+        console.log(true + false + null + undefined);//NaN
+        console.log(({}).toString());//'[object Object]''
+        console.log([23, 34].toString());//'23,34'
+        console.log("10" + 10);
+        console.log("10" - 10);
+        console.log("10" * 10);
+        console.log("10" / 10);
+        let text = 10 + null + undefined + true + [] + undefined + "珠峰" + true;
+        // 10+0+0+1+""+nudefined+"珠峰"+true
+        console.log(text);
+        console.log(true + '1' + false);//true1false
+        console.log(1 + {});//1[object Object]
+        console.log('1' + []);//'1'+''==='1'
+        console.log([] + {});//'[object Ojbect]'
+        console.log({} + {})//
+        let a = 10 + null + true + [] + '珠峰' + [] + {} + false;
+        console.log(a);
+        //10+0+1+''+'珠峰'+''+'[object Object]'+'false'
+        // 11珠峰[obejct Object]false
+        let b = 1 + null + true + undefined + '珠峰' + {} + null;
+        console.log(b);
+        //1+0+1+NaN+‘珠峰’+‘[object Object]’+0；
+        //NaN+'珠峰'+‘[object Object]’+‘’
+        //'NaN珠峰[object Object]null
+
+        let c = 1 + isNaN(null) + undefined + '珠峰' + {} + parseInt('13px');
+        console.log(c); //false
+        //1+0+naN+'珠峰'+[object Object]+13
+        //NaN珠峰[object Object]
+        let d = 1 + 'isNaN(null)';
+        console.log(d);
+        console.log(!!isNaN(!null));//false
+        console.log(!!parseInt( !Number( !!isNaN('13px') ) ))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = 1;
+        console.log(name);
+        //数据类型中把字符串转为数字
+        console.log(Number("13"));
+        //数据类型中把布尔类型转为数字
+        console.log(Number(true));//1
+        console.log(Number(false));//0
+        console.log(Number(''));//0
+        console.log(Number(null));//0
+        console.log(Number(undefined));//NaN
+
+        //引用转数字
+        //所有的普通对象转字符串都是'[object Object]'
+        //所有的普通对象都是NaN
+        let ary = [1, {}, [], true, null, undefined, 'we'];
+        //1,[object Object],,true,,,we
+        console.log(ary.toString());
+        console.log('1' == 1);//默认会把字符串1 转换为数字 结果为true
+        console.log(Number(Number('Number(13)')));//NaN
+        console.log(Number([true]));//"true" 
+        console.log(Number("true"));
+
+        console.log(parseInt(true));//nan
+        console.log(parseFloat(12.3330));//12.333
+        console.log(parseFloat('12.3.4'));//12.3 
+        console.log(parseFloat('12drgreget'));//12
+        console.log(parseFloat('12.3,') == 12.34);//true
+        console.log(parseFloat([11, 12, 13]));//11
+        console.log(isNaN(3));//false
+        console.log(isNaN(true));//false
+        console.log(isNaN(undefined));//true
+        // let num = 2;
+        // var num=3;
+        // console.log(num);
+        console.log(Number([{}]))
+
+        console.log(NaN == NaN); //false
+        console.log(Number('NaN')); //NaN
+        console.log(Number('-15.7')); // 15.7
+        console.log(Number('-15.7.2')); //NaN
+        console.log(Number('')); //0
+        console.log(Number('  ')); //0
+        console.log(Number([]));//0
+        console.log(Number([-15.7])); // 15.7
+        console.log(Number([23, 12])); //NaN
+        console.log(Number({})); //NaN
+        console.log(Number({ name: 'erYa' })); //NaN
+        console.log(Number({ age: ['erYa', 'xiaoHua'] })); //NaN
+        console.log(Number(NaN == NaN)); //0
+        console.log(Number(Number('NaN'))); //NaN
+        console.log(Number('Number(NaN)')); //NaN
+        console.log(parseFloat(parseInt('3.1415926')));//3
+
+        var num = 12;
+        num = 15;
+        console.log(isNaN(parseInt(Number('13.5'))) == false);
+        //false == false  为true
+        console.log(isNaN(parseInt(Number('1  3.5'))) == false)
+       // true == false 为false
+    </script>
+</body>
+
+</html>

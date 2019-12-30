@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    /*
+    数组：特殊对象
+    let ary=[1,2,3,4,5,6]
+    1,所有的数组外层由[]包裹
+    2,里面所写的每一项都是属性值，逗号分隔
+    3,数组的属性名是浏览器自动生成的，从0开始，依次递增，他还可以代表属性值所在的位置，也被称作索引
+    索引：从0开始依次递增，可以代表属性值的位置
+    4.数组天生自带一个length属性，其属性值是数组的长度
+    */
+    let ary = [true, '哈哈', 1, false];
+       console.log(ary.length);
+       console.log(ary[0]);//获取首项
+       console.log(ary[ary.length-1]);//获取最后一项
+    //    ary[ary.length]='末尾新增一项'
+    //    ary.unshift(50);//首位增加
+       ary.length=ary.length-1;//删除数组 修改数组的长度
+       console.log(ary);
+       ary.length=0;//清空数组
+
+     
+</script>

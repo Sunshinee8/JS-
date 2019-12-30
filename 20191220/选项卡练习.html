@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            list-style: none;
+            width: 500px;
+            height: 50px;
+            display: flex;
+            position: relative;
+            top: 1px;
+        }
+
+        ul li {
+            width: 155px;
+            margin-right: 20px;
+            height: 50px;
+            border: 1px solid lightblue;
+            box-sizing: border-box;
+        }
+
+        ul li:last-child {
+            margin-right: 0px;
+        }
+
+        #box {
+            width: 500px;
+            height: 250px;
+            margin: 20px auto;
+            box-sizing: border-box;
+        }
+
+        #box div {
+            height: 200px;
+            border: 1px solid lightblue;
+            text-align: center;
+            display: none;
+        }
+
+        #box .active {
+            background: lightcoral;
+            display: block;
+        }
+
+        #ul .active {
+            background:lightcoral;
+            border-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="active">1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <script>
+        let ul = document.getElementById('ul');
+        let liList = ul.getElementsByTagName('li');
+        let box = document.getElementById('box');
+        let divList = box.getElementsByTagName('div');
+        for (var i = 0; i < liList.length; i++) {
+            liList[i].myIndex=i;
+            //当每个li点击时 触发的事件，由于是整个页面都加载完的，所有要重新添加一个属性名
+            liList[i].onclick = function () {
+                fn(this.myIndex);
+            }
+        }
+        function fn(index) {
+            for (var i = 0; i < liList.length; i++) {
+                //清空样式
+                liList[i].className='';
+                divList[i].className='';
+            }
+            liList[index].className="active";
+            divList[index].className="active";
+            //添加样式
+        }
+    </script>
+</body>
+
+</html>

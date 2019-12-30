@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        console.log/dir/table 返回值是undefined
+        log:在控制台打印js的值（调试）
+        dir:查看对象的详细信息
+        table:把多维对象打印成表格
+        
+        alert:浏览器弹窗
+        1.在浏览器弹出你输入的内容
+        2.默认把输入的内容转字符串
+        3.阻止代码向下运行。当你点击确定时候，代码才会继续往下走
+        4.返回值是undefined
+         alert(1);
+   
+        confirm:浏览器弹窗，在alert基础上增加了一个取消按钮
+        1.在浏览器弹出你输入的内容
+        2.默认把输入的内容转字符串
+        3.阻止代码向下运行。当你点击确定或取消时候，代码才会继续往下走
+        4.返回值是boolean类型，点击确定，返回值是true；点击取消，返回值是false
+         confirm(1);
+        
+        prompt：浏览器弹窗，在confirm基础上增加了一个输入框
+        1、在浏览器弹出你输入的内容
+        2、默认把输入的内容转字符串
+        3、阻断代码向下运行，当你点击确定或者取消的时候，代码才会继续往下走
+        4、返回值是字符串类型。点击确定，返回值就是输入框的内容；点击取消，那他的返回值就是null
+        let p = prompt(1);
+        console.log(p);//输入框内容
+        */
+        // confirm(1);
+        let ary = [['1'], ['2']];
+        //多维对象
+        let obj = {
+            a: { name: '张三', age: 18 },
+            b: { name: '李四' }
+        }
+        prompt(11);
+        // console.table(obj);
+        //  alert(1);
+        let p = prompt(1);
+        console.log(p);//输入框内容
+    </script>
+</body>
+
+</html>

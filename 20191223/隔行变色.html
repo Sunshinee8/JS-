@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 500px;
+            height: 250px;
+            margin: 20px auto;
+            border: 1px solid lawngreen;
+        }
+
+        ul {
+            list-style: none;
+            height: 250px;
+            text-align: center;
+        }
+
+        ul li {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'>
+        <ul id='ul'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        let ul = document.getElementById('ul');
+        let list = ul.getElementsByTagName('li');
+        for (var i = 0; i < list.length; i++) {
+            //奇数行
+            if (i % 2 === 0) {
+                // list[i].myColor = 'red';
+                list[i].style.backgroundColor = 'red';
+            } else {
+                //偶数行
+                // list[i].myColor = 'black';
+                list[i].style.backgroundColor = 'black';
+            }
+            list[i].myColor = list[i].style.backgroundColor;
+            list[i].myIndex = i;
+            list[i].onclick = function () {
+                alert(this.myIndex)
+            }
+            list[i].onmouseover = function () {
+                this.style.backgroundColor = 'yellow'
+            }
+            list[i].onmouseout = function () {
+                this.style.backgroundColor = this.myColor;
+            }
+        }
+    </script>
+</body>
+
+</html>

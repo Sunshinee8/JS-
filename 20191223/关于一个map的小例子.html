@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        width: 500px;
+        height: 500px;
+        list-style: none;
+    }
+    ul li:nth-child(even){
+        background: lightblue;
+    }
+    ul li:nth-child(odd){
+        background: lightcoral;
+    }
+    </style>
+</head>
+<body>
+    <ul id="ul">
+
+    </ul>
+    <script>
+    let ul=document.getElementById('ul');
+    let ary=[1,2,3,4,5]
+    let res=ary.map((item,index)=>{
+       return `<li>第${item}个li</li>`;
+    })
+    res=res.join('');//转成字符串
+    // console.log(res)
+    ul.innerHTML=res;  
+    </script>
+</body>
+</html>

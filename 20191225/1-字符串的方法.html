@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        用单引号，双引号，反引号包裹起来的 是字符串
+        字符串.length,每一项也有索引，跟数组的索引一样 
+        不能通过length 对字符串进行修改
+        字符串的方法：都不会改变原字符串
+       
+        */
+        let str = 'asd';
+        console.log(str.length);
+        console.log(str[0]);
+
+        /*
+            字符串方法的返回值：就是改变之后的值
+           1.charAt(索引值);通过指定的索引获取对应的字符串
+              没有查到值 返回空
+        */
+        let str1 = '1452grer你';
+        console.log(str1.charAt(0));//1 没有查到值 返回空
+        console.log(str1[0]);//1 没有查到值 返回 undefined
+
+        /*
+        2.charCodeAt(索引值);通过指定的索引获取对应的字符串所对应的ASCII码（阿斯克码）
+        返回值：（阿斯克码）
+        */
+        console.log(str1.charCodeAt(str1.length - 1));//20320
+        /*
+        3. substr(n,m);从索引n开始m个
+         返回值：截取的内容
+        */
+        console.log(str1.substr());//1452grer你 克隆
+        console.log(str1.substr(0));//1452grer你 克隆
+        console.log(str1.substr(0, 3));//14
+        var j='大家好！'
+         console.log('substr:'+j.substr(-2,3))//家好3-3
+         console.log('substring:'+j.substring(-2,3));
+         console.log('slice:'+j.slice(-2,3));//家好1-2
+       
+        /*
+        4.substring(n,m):从索引n开始截取到m 前一个内容（不支持负数）
+        */
+        console.log(str1.substring());//克隆
+        console.log(str1.substring(0));//克隆
+        console.log(str1.substring(0, 3));//1452
+
+
+        //5.slice(n,m):从索引n开始截取到m 前一个内容 （支持负数）
+
+        console.log(str1.slice());//克隆
+        console.log(str1.slice(0));//克隆
+        console.log(str1.slice(0, 4));//1452
+
+
+        // 6. split:把字符串以特定的分隔符转数组
+
+
+        let str2 = '1-2-3-4';
+        str2 = str2.split('-').join('');  //把字符串-删除掉
+        console.log(str2);
+
+        /*
+        7.replace(n,m):把字符串中的n被m替换(默认只能提出一个，全部替换用正则[/n/g,m])
+        */
+        let str3 = ' adFgRagra ';
+        // console.log(str3.replace('a','x').replace('a','x').replace('a','x'));//全部替换
+        console.log(str3.replace(/a/g, 'x'));//全部替换 匹配字符串a，g表示全局的范围
+
+        /*
+        8.toUpperCase();字母转大写
+        */
+        console.log(str3.toUpperCase());
+
+        //9.toLowerCase;字母转小写
+        console.log(str3.toLowerCase());
+
+        console.log(str3.replace('a', 'A'));
+        console.log(str3)
+        //10.trim :去左右两边空格
+        let str5 = '  234  ';
+        console.log(1, str5.trim(), 5);
+        console.log(1, str5.trimLeft(), 5);
+        console.log(1, str5.trimRight(), 5);
+
+        // 11.trimLeft():去左右两边空格
+
+        // 12trimRight():去右两边空格
+        let str6='1234567893'
+        // 13、indexOf();从前面开始查找
+        console.log(str6.lastIndexOf('3'))
+        // 14、lastIndexOf():从后面开始查找
+        // 15、includes:判断字符是否存在
+        console.log(str6.includes());
+        // 16、concat：字符串拼接
+        console.log(str6.concat('0'));
+    </script>
+</body>
+
+</html>

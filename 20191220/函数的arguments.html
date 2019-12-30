@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function sum(n,m){
+        //     return (n+m)/2;
+        // }
+        /*
+        函数的arguments：函数的实参集合，是一个类数组
+        arguments 里的callee指的是函数本身，在严格模式下禁止使用callee
+        */
+
+        function sum() {
+            console.log(arguments) //  [10, 20, 30]
+            console.log(arguments.callee) //指的是函数本身
+            let total = null;
+            for (var i = 0; i < arguments.length; i++) {
+                var cur = arguments[i];
+                total += cur;
+            }
+            return total / 2;
+        }
+
+        console.log(sum(10, 20, 30))//可以无限输入实参
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  引用数据类型详解
+        1.普通对象
+         在js里任何事物都是对象
+         特点：1.所有对象外层都是由大括号包裹，里面是由0到多组键值对组成，每一组之间拿逗号隔开
+               2.每一个键值对都是由属性名和属性值组成（key：value），中间拿冒号分隔
+               3.属性名的数据类型是由数字或者字符串类型的，引号可以省略不写
+               4.属性值必须是js数据类型中的一种 */
+        //对象的增删改查
+        let monkey = {
+            name: "sunWuKong",
+            age: null,
+            sex: 'man',
+            6: 45345
+        }
+        /*1.对象的查询：寻找对象的属性名所对应的属性值
+           对象名.属性名 如果属性名是数字，那不能用直接方式获取
+           对象名[属性名] 如果属性名是数字可以不写引号
+        */
+        console.log(monkey["name"]);
+        console.log(monkey.sex);
+        console.log(monkey[6]);
+
+        /*2对象的修改新增
+        如果操作的属性名存在，那就是修改，如果没有就是新增
+        */
+        //monkey['name']='xxx';
+        monkey.name = 'xxx';//存在的属性 更改内容 为修改
+        monkey.ss = "666";//不存在的属性，添加内容 为新增
+        /*3.删除    
+        */
+        //--1 假删除 属性名还是存在的
+        monkey.name = "";
+        console.log(monkey);
+        //--2 真删除：把属性名也删除掉
+        delete monkey.name;
+        console.log(monkey);
+
+        /* let a = 12,
+        b = 13,
+        c = 14;
+        等价
+    let a = 12;
+    let b  =13;
+    let c = 14; */
+
+        /* let a = b = c = 12;
+
+        let a = 12;
+        b = 12;
+        c = 12; */
+    </script>
+</body>
+
+</html>

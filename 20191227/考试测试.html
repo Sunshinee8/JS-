@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 500px;
+            height: 500px;
+            margin: 30px auto;
+            box-sizing: border-box;
+        }
+
+        #ul {
+            width: 500px;
+            list-style: none;
+            display: flex;
+            position: relative;
+            top: 1px;
+            box-sizing: border-box;
+        }
+
+        #ul li {
+            height: 50px;
+            width: 150px;
+            border: 1px solid lightcoral;
+            box-sizing: border-box;
+        }
+
+        #ul li:nth-child(2) {
+            margin: 0 25px;
+        }
+
+        #box div {
+            height: 450px;
+            display: none;
+        }
+
+        #ul li.active {
+            background: lightcoral;
+            border-style: none;
+        }
+
+        #box div.active {
+            background: lightcoral;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class="active">1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <script>
+        let list = document.querySelectorAll('#ul>li');
+        let divList = document.querySelectorAll('#box div');
+        for (var i = 0; i < list.length; i++) {
+            list[i].setAttribute('index', i);
+            list[i].onclick = function () {
+                fn(this.getAttribute('index'));
+            }
+        }
+        function fn(index) {
+            for (var i = 0; i < list.length; i++) {
+                list[i].className = '';
+                divList[i].className = '';
+            }
+            divList[index].className = 'active';
+            list[index].className = 'active';
+        }
+    </script>
+
+
+    <script>
+        //13.1415926truenull3.1415926小花nullundefined
+        let a = 16 % 3;
+        console.log(a)
+        let f = 1 + [3.1415926] + true + null + [3.1415926] + '小花' + [] + null + undefined;
+        console.log(f);
+        //数组去重1
+        function unique1(ary) {
+
+            let obj = {};
+            for (var i = 0; i < ary.length; i++) {
+                if (obj[ary[i]] === undefined) {
+                    obj[ary[i]] = ary[i];
+                } else {
+                    ary.splice(ary[i], 1);
+                    ary[i] = ary[ary.length - 1];
+                    ary.length--;
+                    i--;
+                }
+
+            }
+            return ary;
+        }
+        let ary = [2, 3, 23, 3, 2, 4, 23];
+        // console.log(unique1(ary))
+
+        //去重2
+        function unique2(ary) {
+            var obj = {};
+            var newAry = [];
+            for (var i = 0; i < ary.length; i++) {
+                obj[ary[i]] = ary[i];
+            }
+            for (var j in obj) {
+                newAry.push(obj[j]);
+            }
+            return newAry
+        }
+        let ary2 = [2, 3, 23, 3, 2, 4, 23];
+        // console.log(unique2(ary2))
+        //排序
+        function quickSort(ary) {
+            var handAry = [];
+            handAry.push(ary[0]);
+            for (var i = 1; i < ary.length; i++) {
+                for (var j = handAry.length - 1; j >= 0; j--) {
+                    if (ary[i] > handAry[j]) {
+                        handAry.splice(j + 1, 0, ary[i]);
+                        break;//匹配到 就终止
+                    }
+                    if (j === 0) {
+                        handAry.unshift(ary[i]);
+                    }
+                }
+            }
+            return handAry;
+        }
+        let ary3 = [2, 3, 23, 3, 2, 4, 23];
+        // console.log(quickSort(ary3))
+
+        //插入排序
+        function insertSort(ary) {
+            if (ary.length <= 1) return ary;
+            var leftAry = [],
+                rigthAry = [];
+            var middleIndex = Math.round(ary.length / 2);
+            var middleValue = ary.splice(middleIndex, 1);
+            for (var i = 0; i < ary.length; i++) {
+                if (ary[i] > middleValue) {
+                    rigthAry.push(ary[i]);
+                } else {
+                    leftAry.push(ary[i]);
+                }
+            }
+            return insertSort(leftAry).concat(middleValue, insertSort(rigthAry));
+        }
+        let ary4 = [2, 3, 23, 3, 2, 4, 23];
+        // console.log(insertSort(ary4))
+
+
+        //去重 
+        function fn1(ary) {
+            var obj = {};
+            for (var i = 0; i < ary.length; i++) {
+                obj[ary[i]] = ary[i];
+            }
+            var newAry = [];
+            for (var j in obj) {
+                newAry.push(obj[j]);
+            }
+            return newAry;
+        }
+        var fn_ary = [1, 3, 4, 2, 4, 2, 3, 2, 3, 2, 6]
+        // console.log(fn1(fn_ary));
+
+        //数组的插入排序
+        function fn2(ary) {
+            var newAry = [];
+            newAry.push(ary[0]);
+            for (var i = 1; i < ary.length; i++) {
+                //newAry.length-1 是因为索引从0开始，当前长度为1，j=1 是不对的
+                for (var j = newAry.length - 1; j >= 0; j--) {
+                    if (ary[i] > newAry[j]) {
+                        newAry.splice(j + 1, 0, ary[i]);
+                        break;
+                    }
+                    if (j == 0) {
+                        newAry.unshift(ary[i]);
+                    }
+                }
+            }
+            return newAry;
+        }
+        var fn2_ary = [2, 3, 2, 4, 1, 5, 3]
+        // console.log(fn2(fn2_ary));
+    </script>
+
+    <script>
+        let ff = function (n) {
+            return function (m) {
+                return m;
+            }
+        }
+        let fff1 = ff();
+        console.log(fff1(2));
+
+        let ff2 = n => m => m
+        let fff2 = ff2();
+        console.log(fff2('m'));
+
+        console.log(typeof NaN==typeof Number('erYa'));//返回的是类型
+        //number
+    </script>
+</body>
+
+</html>

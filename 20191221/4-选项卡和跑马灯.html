@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    html,body{
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <!-- <button>1</button>
+    <button>2</button>
+    <button>3</button> -->
+
+    <script>
+        // 1、函数执行会形成私有栈内存，
+        // 2、函数每执行一次就会 重新形成私有栈内存，把代码重新执行一-遍
+        // 3、函数存储的时候:会把函数里边的代码转换为字符串存储到堆内存中，
+        //1.想操作谁就获取谁
+    //    let btns=document.getElementsByTagName('div');//空数组
+       let btns=document.getElementsByTagName('buttom');
+    </script>
+    <script>
+    let body=document.body;
+    var i=0;
+    var ary=['red','blue','pink','yellow','black'];  
+    body.onclick=function(){        
+        //写法1：
+        i<ary.length?body.style.background=ary[i++]:i=0;
+        //写法2：
+        // body.style.backgroundColor = ary[i > ary.length - 1 ? (i = 0,i) : i++]
+           //     i > ary.length - 1 ? i = 0 : null;
+        //     body.style.backgroundColor = ary[i++]
+      
+    }
+    </script>
+</body>
+
+</html>

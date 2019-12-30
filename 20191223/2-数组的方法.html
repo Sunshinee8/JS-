@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        数组的方法:(只有数组可以调用)
+        1.方法的含义
+        2.方法的参数
+        3.方法的返回值
+        4.原有数组是否发生改变
+        */
+        /*
+       一。数组的增删改查：（原有数组发生变化）
+        1，push：
+        含义：给数组末尾增加内容
+        参数：可以传多个值（js数据类型中的一种）
+        返回值：新数组的长度
+        原有数组发生变化
+        */
+        let ary1 = [1, 2, '你好'];
+         ary1.push(4,5,'ni');
+       console.log(ary1);
+        /*
+        2,unshift
+        含义：给数组开头增加内容
+        参数：可以传多个值
+        返回值：新数组的长度
+        原数组是否发生变化：发生变化
+        */
+        // ary1.unshift(0,01,02);
+
+
+        /*
+        3.pop
+        含义：删除数组最后一项
+        参数：无
+        返回值：删除的那一项
+        原数组是否发生变化：发生变化
+        */
+        //  console.log(ary1.pop()) ;//'你好'
+
+
+        /*
+        4.shift
+        含义：删除数组开头一项
+       参数：无
+       返回值：删除的那一项
+       原数组是否发生变化：发生变化
+        */
+        // ary1.shift();
+        // console.log(ary1);
+
+        /*
+        5.splice
+        含义：数组的增删改(任意一个)
+       参数：不固定
+       返回值：新的数组，数组里的内容是删除的那几项
+       原数组是否发生变化：发生变化
+        */
+        let ary2 = ['nih', 3, 4, 5];
+        //（1）传递一个参数 从n开始。删除到数组末尾
+        //  console.log(ary2.splice(3)) ;//[5]
+
+        //（2）传递两个参数 从n开始 ，删除m个
+        // console.log(ary2.splice(1, 2)) ;// [3, 4]
+        // ary2.splice(0, 1);//删除开头一项
+        // ary2.splice(ary2.length - 1, 1);//删除末尾一项
+
+        //（3）传递三个参数 n,m,x :从索引n开始，删除m个，用x替换
+        // console.log(ary2.splice()) 
+        ary2.splice(0, 0, 'last');
+        // console.log(ary2.splice(1,2,'啦','a'))  ;//放到当前索引的前面 [4, 5]
+        console.log(ary2)// ["nih", "啦", "a", 5]
+        //  console.log(ary2);
+        //（4）增加内容；n,0,x 
+        //  ary2.splice(0,0,'first');//开头增加一项
+
+        ary2.splice(ary2.length, 0, 'last');//末尾增加一项
+        console.log(ary2);
+
+        /*
+        二。数组的截取和拼接 
+         6.slice（原数组不变）
+         含义：数组的截取和拼接
+         参数：不固定
+         返回值：截取后的新数组
+         原数组是否发生变化：不发生变化
+        */
+        let ary3 = [1, 2, 3, 4, 5, 6]
+        //传递一个参数n:从索引n开始，截取到末尾
+        console.log(ary3.slice(2));//[3, 4, 5, 6]
+        console.log(ary3.slice());//数组的克隆
+        console.log(ary3.slice(0));//数组的克隆
+        console.log(ary3);// [1, 2, 3, 4, 5, 6]
+        //传递两个参数n,m 负数 +length 再计算
+        // console.log(ary3.slice(-8, 5));//[]
+        console.log(ary3.slice(2, 3,0))//[3,4,5,6]
+        //传递的参数支持负数
+
+        /*
+        7.数组的拼接 concat（原数组不变）
+         含义：数组的截取和拼接
+         参数：不固定
+         返回值：拼接后的新数组
+         原数组是否发生变化：不发生变化
+        */
+        console.log(ary3.concat(true,null))//  [1, 2, 3, 4, 5, 6]
+        /*
+           - 8、join
+           + 含义：数组以特定的分隔符转字符串
+           + 参数：分隔符
+           + 返回值：转换后的字符
+           + 原数组是否发生变化：不发生改变
+      */
+       console.log(ary3.join());//1,2,3,4,5,6
+        console.log(ary3.join(' '));//'1 2 3 4 5 6'
+        console.log(ary3.join(''));//1+2+3+4+5+6
+        /*  eval（浏览器方法） 把字符串转换js表达式   */
+        console.log(eval(ary3.join('+')))//和 21      
+        console.log(eval('1+2+3+4+5+6'));//21
+
+        // 三。数组的排序
+        /*
+        - 9、reverse
+        + 含义：数组的倒叙
+        + 参数：无
+        + 返回值：排序后的数组
+        + 原数组是否发生变化：发生改变*/
+        let ary4 = [2, 6, 8, 9, 4];
+        console.log(ary4.reverse());//[4, 9, 8, 6, 2]
+        console.log(ary4)// [4, 9, 8, 6, 2]
+
+        /*
+        10.sort
+        + 含义：数组的排序
+        + 参数：无或者函数
+        + 返回值：排序后的数组
+        + 原数组是否发生变化：发生改变
+        传参就可以给大于10的数进行排序
+        */
+        let ary5 = [2, 66, 8, 11, 4];
+        // console.log(ary5.sort(function (a, b) {
+        //     return a - b;//升序  b-a 降序
+
+        // }));
+        console.log(ary5.sort((a,b)=>(a-b)))
+        /*
+        11.indexOf
+        + 含义：检测某个值在数组中第一次出现的位置
+        + 参数：（检测的值，检测的位置）
+        + 返回值：返回索引值，如果数组中没有这个值就返回-1
+        + 原数组是否发生变化：不发生改变
+        */
+        let ary6 = [2, 66, 8, 11, 4, 2, 1, 2];
+        //传递一个参数，那就表示检测的内容，4
+        console.log(ary6.indexOf(4));//4
+        //传递两个参数，那第二个参数就是开始检测的位置
+        console.log(ary6.indexOf(2, 4));//5
+
+        /*
+        12.lastIndexOf
+        + 含义：检测某个值在数组中最后一次出现的位置
+        + 参数：（检测的值,检测结束的位置）
+        + 返回值：返回索引值，如果数组中没有这个值就返回-1
+        + 原数组是否发生变化：不发生改变
+        */
+        //传递一个参数，那就表示检测的内容，4
+        console.log(ary6.lastIndexOf(2));//7
+        //传递两个参数，那第二个参数检测结束的位置
+        console.log(ary6.lastIndexOf(2, 4));//2,66,8,11,4,2==> 5
+
+        /*
+        13.includes
+        + 含义：检测数组中是否包含某个值
+        + 参数：
+        + 返回值：是一个布尔值，如果检测的值在数组中有，那就返回true，反之返回false
+        + 原数组是否发生变化：不发生改变
+        */
+        let ary7 = [2, 66, 8, 11, 4, 2, 1, 2];
+        console.log(ary7.includes(8));
+        console.log(ary7.includes(100));
+        /*
+        14.forEach
+        + 含义：循环数组
+        + 参数：函数
+        + 返回值：undefined
+        + 原数组是否发生变化：不发生改变
+        */
+        console.log( ary7.forEach((item1, index) => {
+            console.log(item1, index);
+        }))  //返回undefined
+
+        let sum2=(...ary)=>{
+            let totel=0;
+            for(var i=0;i<ary[0].length;i++){
+               totel+=ary[0][i];
+            }
+            return totel;
+        }
+        // console.log(sum2(ary));
+
+        // let ary1 = [...ary];
+        // function sum(...arg) {
+        //     let total = null;
+        //     //item代表数组的每一项
+        //     //index 代表每一项的索引
+        //     arg.forEach((item,index) => {
+        //         if (!isNaN(Number(item))) {
+        //             total += item;//累加
+        //         }
+        //     })
+        //     return total;
+        // }
+        // console.log(sum(...ary7));
+
+        /*
+        15.map
+        + 含义：循环数组
+        + 参数：函数
+        + 返回值：映射之后的数组
+        + 原数组是否发生变化：不发生改变
+        */
+        let aryMap=ary7.map((item,index)=>{
+        //   return item;
+        return `我是第${item}个人`;//模板字符串，里边可识别变量${}
+        })
+        console.log(aryMap)
+    </script>
+</body>
+
+</html>

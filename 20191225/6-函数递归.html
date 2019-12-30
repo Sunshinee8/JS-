@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        函数的递归：(相当与数组 return 必须有和，因为一次一次调用 这样并求不了和，只能最后统一加到一起，就是递归的和)
+        含义：自己调用自己
+        当使用函数的递归时，一般都有终止条件
+
+        */
+        function fn() {
+            console.log()
+        }
+
+        //实现1到5之间的和
+        function fn2(num) {
+            if (num > 5) return 0;
+            return num + fn2(num + 1);
+        }
+
+        let a = fn2(1);
+        console.log(a);
+
+        //    function fn(1){
+        //         return 1+fn(2) // 5
+        //     }
+
+        // function fn(2){
+        //     return 2+fn(3) // 3
+        // }
+
+        // function fn(3){
+
+        //     return 3+fn(4) // 0
+        // }
+
+        // function fn(4){
+        //         return 0
+        // }
+
+        //求1到100之间既能被3整除又能被5整除的数的和
+        function fn3(num) {
+            if (num > 100) return 0;
+            //能被3和5整除的 公倍数是15 
+            if (num % 15 === 0) {
+                return num + fn3(num + 1);
+            }
+            return fn3(num + 1);
+        }
+        let a1 = fn3(1);
+        console.log(a1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        时间字符串格式化
+        把 '2019-12-3 15:30' 转换为 '2019年12月03日 15时30分';
+        */
+        
+        //    console.log(time.replace('-','年').replace('-', '月').replace(' ', '日 ').replace(':','时')+'分');
+
+        // 如果值小于是10，就得补零
+        // function addZero(value) {
+        //     if (value.length < 2) {
+        //         return '0' + value
+        //     } else {
+        //         return value
+        //     }
+        // }
+        
+      
+        // function addZero(value) {
+        //     // if (value.length < 2) {
+        //     //     return '0' + value
+        //     // } else {
+        //     //     return value
+        //     // }
+        //     return value.length < 2 ? '0' + value : value
+        // }
+        let time = '2019-12-3 15:2';
+        let addZero = value => value.length < 2 ? '0' + value : value;
+
+
+        function format(time) {
+            let y = time.indexOf('-'); 
+            let m = time.lastIndexOf('-');
+            let d = time.indexOf(' ');
+            let h=time.indexOf(':');//获取时的索引
+            let year = time.substring(0, y);//年
+            let month = time.substring(y + 1, m);// 月
+            let day = time.substring(m + 1, d);//日
+            let hour=time.substring(d+1,h);//时
+            let Minute=time.substring(h+1);//分
+            console.log(year, month, day,hour,Minute);
+
+            return addZero(year) + '年' + addZero(month) + '月' + addZero(day) + '日 '+addZero(hour)+'时'+addZero(Minute)+'分';
+        }
+        console.log(format(time));//2019年12月03日 15时02分
+
+    </script>
+</body>
+</html>

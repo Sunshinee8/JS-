@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            width: 500px;
+            height: 250px;
+            background: lightgoldenrodyellow;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        ul li {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="ul">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <script>
+        //获取box 
+        let ulId = document.getElementById('ul');
+        let liList = ulId.getElementsByTagName('li');
+        //for 里面设置元素的值。只要都加载完的，都用this
+        for (var i = 0; i < liList.length; i++) {
+            
+            if (i % 2 === 0) {
+                liList[i].myColor=liList[i].style.background = "red";
+                // this.style.background="red";
+            } else {
+                liList[i].myColor=liList[i].style.background = "black";
+            }
+            liList[i].onmouseover=function(){
+              this.style.background="yellow";
+            }
+            liList[i].onmouseout=function(){
+                this.style.background=this.myColor;
+            }
+        }
+    </script>
+</body>
+
+</html>

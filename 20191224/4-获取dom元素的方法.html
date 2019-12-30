@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul id='ul'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <div class="box2"></div>
+    <script>
+        /* 
+        获取dom元素原的方法：
+       1. document.getElementById():通过id名去获取元素，获取的是一个元素对象，如果获取不到就是null
+
+       2. context.getElementsByTagName('div')在指定的上下文中通过标签名获取元素，获取的是一个元素集合(他是类数组)，如果获取不到就是空元素集合
+
+       3. context.getElementsByClassName():在指定的上下文中通过class名来获取元素，获取的是一个元素集合(他是类数组)，如果获取不到就是空元素集合
+
+       4. querySelector():通过样式选择器获取元素(只能获取一个)，获取不到就是null
+       5. querySelectorAll：通过样式选择器获取元素集合,获取的是一个元素集合(他是类数组)，如果获取不到就是空元素集合
+
+        6.document.body;//获取body
+        7.document.documentElement;//获取html
+        8.document.head;//获取头部
+        */
+        let box = document.getElementById('box')
+        // // let divs = box.getElementsByTagName('div')
+        // let divs = box.getElementsByClassName('a')
+        // console.log(divs)
+        // // console.log(divs.pop()) // 报错
+
+        let ss = box.querySelector('ul>a');
+        console.log(box.querySelectorAll('#ul>a')) 
+        console.log(ss);
+        document.body;//获取body
+        document.documentElement;//获取html
+        document.head;//获取头部
+    </script>
+</body>
+
+</html>

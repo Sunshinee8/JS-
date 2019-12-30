@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        #box {
+            width: 800px;
+            height: 50px;
+            line-height: 50px;
+            margin: 30px auto;
+            background: -webkit-linear-gradient(top right, rgb(226, 98, 98), rgb(96, 223, 96), rgb(235, 235, 26));
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            color: lightcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">显示内容</div>
+    <script>
+        let box = document.getElementsByTagName('div')[0];
+        //不足10 补零
+        function addZreo(value) {
+            // if (value < 10) {
+            //     '0' + value
+            // } else {
+            //     return value
+            // }
+            return value < 10 ? '0' + value : value;
+        }
+        //星期映射表
+        function transDay(value) {
+            let obj = {
+                0: '星期日',
+                1: '星期一',
+                2: '星期二',
+                3: '星期三',
+                4: '星期四',
+                5: '星期五',
+                6: '星期六'
+            };
+            return obj[value];
+        }
+        getTime();
+        function getTime() {
+            let time = new Date(),
+                //都是数字类型的值
+                year = time.getFullYear(),
+                month = time.getMonth() + 1,
+                day = time.getDay(),
+                date = time.getDate(),
+                hour = time.getHours(),
+                min = time.getMinutes(),
+                sec = time.getSeconds();
+            let res = year + '年' + addZreo(month) + '月' + addZreo(date) + '日 ' + addZreo(hour) + '时' + addZreo(min) + '分' + addZreo(sec) + '秒 ' + transDay(day);
+            box.innerHTML = res;
+        }
+        //定时器，间隔1秒执行一次，(注意：方法不加括号)
+        setInterval(getTime, 1000);
+    </script>
+</body>
+
+</html>

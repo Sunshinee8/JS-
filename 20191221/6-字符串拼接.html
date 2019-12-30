@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content_div">eee</div>
+    <input type="text" id="content">
+    <button id="btn">确定</button>
+    <script>
+        let content_div = document.getElementById('content_div');
+        let content1 = document.getElementById("content");
+        let btn = document.getElementById('btn');
+
+        btn.onclick = function () {
+            let html = '<p>' + content1.value + '</p>';
+            content_div.innerHTML += html;
+            content1.value = "";
+        }
+
+        function fn(a){
+            a();
+        }
+        let f=function(){
+            console.log(1);
+        }
+        fn(f);
+        let f22 = 1 + true + null + [3.1415926] + '小花' + [] + null + undefined;
+        let f1=1+null;
+        console.log(f1);
+    </script>
+</body>
+
+</html>

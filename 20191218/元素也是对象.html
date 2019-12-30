@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+    .setName{
+        color: "green";
+    }
+    </style>
+</head>
+<body>
+    <div id="box" class="getName" style="color: white;">1111</div>
+    <script>
+    /*
+    元素也是对象:
+    get:获取
+    element：元素
+    by：通过    
+    */
+    //1.获取元素id
+    let box=document.getElementById("box");
+    console.dir(box);//在控制台详细输出一个对象
+    //2.获取元素类名    
+    console.log(box.className);
+
+    //3.给元素增加类名
+    box.className="setName";
+    //4.获取style样式属性中的内容,只能获取行内样式的值
+    console.log(box.style.color); 
+    //5. 动态增加style样式
+    box.style.color="yellow";
+
+    //6. innerHTML:获取元素的内容（可以识别标签）
+    console.log(box.innerHTML);
+    box.innerHTML="<span color='block'>啦啦啦innerHTML</span>";
+    //7.innerText:获取元素的内容（不可以识别标签）
+    console.log(box.innerText)
+    box.innerText="<span color='block'>啦啦啦innerText</span>";
+    </script>
+</body>
+</html>
