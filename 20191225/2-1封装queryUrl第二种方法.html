@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let url = 'http://www.baidu.com?neme=erYA&id=18';
+        function urlParams(url) {
+            var obj = {};
+            var a = document.createElement('a');
+            a.href = url;
+            console.dir(a);
+            //hash: "#ddd"
+            var hash = a.hash.substring(1);
+            // console.log(hash)
+            obj['hash']=hash?hash:'';
+            // if (hash) {
+            //     obj['hash'] = hash;
+            // } else {
+            //     obj['hash'] = '';
+            // }
+            var search = a.search.substring(1);
+            //search: "?neme=erYA&id=18"
+            if (search) {
+                var newAry = search.split('&');
+                console.log(newAry);
+                for (var i = 0; i < newAry.length; i++) {
+                    var item = newAry[i].split('=');
+                    var key = item[0];
+                    var value = item[1];
+                    obj[key] = value
+                }
+            }
+            return obj;
+        }
+      var obj=  urlParams(url);
+      console.log(obj);
+    </script>
+</body>
+
+</html>
